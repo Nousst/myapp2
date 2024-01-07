@@ -2,20 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('initialaise') {
             steps {
-                echo 'Hello World'
+                sh 'terraform init'
             }
         }
-        stage('test') {
+        stage('format the code') {
             steps {
-                echo 'Hello test'
+                sh 'terraform validate'
             }
         }
-         stage('package') {
+         stage('validate') {
             steps {
-                echo 'Hello package'
+                echo 'terraform validate'
             }
         }
+         stage('plan') {
+            steps {
+                echo 'terraform plan'
+            }
+         }
     }
+             
 }
